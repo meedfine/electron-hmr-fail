@@ -1,7 +1,10 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
+import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
+import Store from 'electron-store';
 
+const configStore = new Store()
 // The built directory structure
 //
 // ├─┬ dist-electron
@@ -58,6 +61,7 @@ async function createWindow() {
     win.loadURL(url)
     // Open devTool if the app is not packaged
     win.webContents.openDevTools()
+    installExtension(VUEJS_DEVTOOLS)
   } else {
     win.loadFile(indexHtml)
   }

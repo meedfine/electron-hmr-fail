@@ -4,6 +4,10 @@ import { join } from 'node:path'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 import Store from 'electron-store';
 
+import express from 'express';
+
+const expressInstance = express()
+
 const configStore = new Store()
 // The built directory structure
 //
